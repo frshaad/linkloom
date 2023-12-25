@@ -14,12 +14,12 @@ export default function UserButton() {
   return (
     <>
       <div className="hidden items-center gap-2 sm:flex md:gap-3">
-        <Button variant="outline">
-          <Link href="/login">Log In</Link>
-        </Button>
-        <Button>
-          <Link href="/register">Create Account</Link>
-        </Button>
+        <Link href="/login">
+          <Button variant="outline">Log In</Button>
+        </Link>
+        <Link href="/register">
+          <Button>Create Account</Button>
+        </Link>
       </div>
       <div className="flex items-center gap-2 md:hidden md:gap-3">
         <DropdownMenu>
