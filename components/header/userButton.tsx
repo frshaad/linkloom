@@ -1,4 +1,5 @@
 import { LogIn, LogOut, User } from 'lucide-react';
+import Link from 'next/link';
 
 import {
   DropdownMenu,
@@ -13,8 +14,12 @@ export default function UserButton() {
   return (
     <>
       <div className="hidden items-center gap-2 sm:flex md:gap-3">
-        <Button variant="outline">Log In</Button>
-        <Button>Create Account</Button>
+        <Button variant="outline">
+          <Link href="/login">Log In</Link>
+        </Button>
+        <Button>
+          <Link href="/register">Create Account</Link>
+        </Button>
       </div>
       <div className="flex items-center gap-2 md:hidden md:gap-3">
         <DropdownMenu>
@@ -23,12 +28,16 @@ export default function UserButton() {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="md:hidden">
             <DropdownMenuItem>
-              <LogIn className="mr-4" size={16} />
-              Log In
+              <Link href="/login">
+                <LogIn className="mr-4" size={16} />
+                Log In
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <LogOut className="mr-4" size={16} />
-              Create Account
+              <Link href="/register">
+                <LogOut className="mr-4" size={16} />
+                Create Account
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
