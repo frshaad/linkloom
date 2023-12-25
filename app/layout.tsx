@@ -2,7 +2,6 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 
-import Header from '@/components/header';
 import { ThemeProvider } from '@/components/themeProvider';
 import { inter } from '@/lib/fonts';
 
@@ -26,8 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main>{children}</main>
+          {children}
         </ThemeProvider>
       </body>
     </html>
