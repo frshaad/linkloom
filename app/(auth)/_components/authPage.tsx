@@ -1,7 +1,6 @@
 import { Quote } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import TextLogo from '@/components/TextLogo';
 import { Button } from '@/components/ui/button';
@@ -19,8 +18,6 @@ type Props = {
 
 export default async function AuthComponent({ type, serverAction }: Props) {
   const session = await auth();
-
-  console.log(session?.user?.name);
 
   if (session?.user) {
     return redirect('/');
