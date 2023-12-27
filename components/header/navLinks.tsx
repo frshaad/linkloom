@@ -23,7 +23,7 @@ export default function NavLinks() {
 
   return (
     <>
-      <ul className="hidden items-center gap-5 text-gray-500 md:flex dark:text-gray-300">
+      <ul className="hidden items-center gap-8 text-gray-500 md:flex dark:text-gray-300">
         {NAV_LNKS.map(link => (
           <li key={link.id}>
             <Link
