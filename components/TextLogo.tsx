@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export default function TextLogo() {
   return (
-    <Link href="/" className={cn('text-xl sm:text-3xl', lobster.className)}>
+    <Link href="/" className={cn('text-xl sm:text-2xl', lobster.className)}>
       LinkLoom
     </Link>
   );

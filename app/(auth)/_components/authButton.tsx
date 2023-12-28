@@ -17,7 +17,9 @@ export default function AuthButton({ provider }: Props) {
   const handleLogin = async () => {
     setIsLoading(true);
     try {
-      await signIn(provider);
+      await signIn(provider, {
+        callbackUrl: '/dashboard',
+      });
     } catch (error) {
       setIsLoading(false);
       throw new Error(`Cannot log in with ${provider}`);

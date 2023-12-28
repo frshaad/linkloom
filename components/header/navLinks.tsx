@@ -28,10 +28,12 @@ export default function NavLinks() {
           <li key={link.id}>
             <Link
               href={`/${link.name}`}
-              className={cn('capitalize', {
-                'text-gray-800 dark:text-gray-100 font-medium':
-                  `/${link.name}` === pathname,
-              })}
+              className={cn(
+                'capitalize text-sm font-medium text-muted-foreground transition-colors hover:text-primary',
+                {
+                  'text-primary': `/${link.name}` === pathname,
+                },
+              )}
             >
               {link.name}
             </Link>
