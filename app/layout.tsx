@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import AuthProvider from '@/components/authProvider';
 import { ThemeProvider } from '@/components/themeProvider';
+import { Toaster } from '@/components/ui/sonner';
 import { inter } from '@/lib/fonts';
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </AuthProvider>

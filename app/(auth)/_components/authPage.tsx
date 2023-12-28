@@ -10,10 +10,21 @@ import { getRandomNum } from '@/lib/utils';
 
 import { REVIEWS } from '../reviews.constant';
 import AuthButton from './authButton';
+import CredentialsSubmitButton from './CredentialsSubmitButton';
+import UserLoginForm from './userLoginForm';
 
 type Props = {
   type: 'login' | 'signup';
-  serverAction: (formData: FormData) => Promise<void>;
+  serverAction?: (formData: FormData) =>
+    | Promise<void>
+    | Promise<{
+        id: string;
+        name: string | null;
+        email: string | null;
+        hashedPassword: string | null;
+        emailVerified: Date | null;
+        image: string | null;
+      }>;
 };
 
 export default async function AuthComponent({ type, serverAction }: Props) {
@@ -62,21 +73,26 @@ export default async function AuthComponent({ type, serverAction }: Props) {
             </div>
 
             <div className="grid gap-6">
-              <form action={serverAction} className="grid gap-2">
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="name@example.com"
-                />
-                <Input
-                  name="password"
-                  type="password"
-                  placeholder="**********"
-                />
-                <Button className="w-full">
-                  {type === 'login' ? 'Log In' : 'Sign Up'}
-                </Button>
-              </form>
+              {type === 'login' ? (
+                <UserLoginForm />
+              ) : (
+                <form action={serverAction} className="grid gap-2">
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <Input
+                    name="password"
+                    type="password"
+                    placeholder="**********"
+                    required
+                  />
+
+                  <CredentialsSubmitButton type={type} />
+                </form>
+              )}
 
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
